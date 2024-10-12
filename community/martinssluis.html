@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>martinssluis.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="luis-henrique-martins-img-src%22httpsimages-wixmp-ed30a86b8c4ca887773594c2wixmpcomf47361df0-7a0b-4149-92d6-dd127f25a9f8dfm11pb-63740cae-a8ab-43cb-bf90-0351c5f89ff5giftokeneyj0exaioijkv1qilcjhbgcioijiuzi1nij9eyjzdwiioij1cm46yxbwojdlmgqxodg5odiynjqznznhnwywzdqxnwvhmgqynmuwiiwiaxnzijoidxjuomfwcdo3ztbkmtg4otgymjy0mzczytvmmgq0mtvlytbkmjzlmcisim9iaii6w1t7inbhdggioijcl2zclzq3mzyxzgywltdhmgitnde0os05mmq2lwrkmti3zji1ytlmofwvzgztmtfwyi02mzc0mgnhzs1hogfiltqzy2itymy5mc0wmzuxyzvmodlmzjuuz2lmin1dxswiyxvkijpbinvybjpzzxj2awnlomzpbguuzg93bmxvywqixx0lyrnnmaurjz-ew4gsgezg7wyzdod0e0soqpwn2sirpg%22-width%2250%22-style%22vertical-align-middle%22">Luis Henrique Martins <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/47361df0-7a0b-4149-92d6-dd127f25a9f8/dfm11pb-63740cae-a8ab-43cb-bf90-0351c5f89ff5.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ3MzYxZGYwLTdhMGItNDE0OS05MmQ2LWRkMTI3ZjI1YTlmOFwvZGZtMTFwYi02Mzc0MGNhZS1hOGFiLTQzY2ItYmY5MC0wMzUxYzVmODlmZjUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.LYrnnmauRJz-ew4GSGEzG7wYzDod0E0sOqpWN2SIrpg"  width="50" style="vertical-align: middle;" /></h1>
+<h1 id="%E2%9C%A8um-pouco-sobre-mim">✨Um Pouco Sobre Mim</h1>
+<p>🎨 Criativo e Apaixonado por Arte</p>
+<p>Me considero uma pessoa muito criativa e apaixonada por arte, seja pintura, escultura, fotografia, música, cinema ou teatro. Minha mãe sempre incentivou esse lado, levando-me a exposições, apresentando-me bandas e alugando filmes para assistirmos juntos. Adoro deixar um pouco de mim em cada trabalho que realizo; minha identidade é essencial, pois quero deixar minha marca em tudo o que faço.</p>
+<h3 id="%F0%9F%92%BB-o-in%C3%ADcio-do-meu-interesse-por-tecnologia">💻 O Início do Meu Interesse por Tecnologia</h3>
+<p>De onde surgiu meu interesse pela tecnologia? Como mencionei, sou apaixonado por cinema, música, fotografia e pela busca de entender como tudo funciona. Um dia, ao procurar um filme para ter uma experiência cinematográfica nova, me recomendaram <strong>A Rede Social</strong> (2010), dirigido por David Fincher e estrelado por Jesse Eisenberg como Mark Zuckerberg. O filme é incrível em todos os aspectos: fotografia impecável, trilha sonora envolvente, diálogos afiados e atuações marcantes. Ele explora a trajetória de um dos gênios contemporâneos, e isso despertou em mim uma curiosidade profunda por tecnologia. Desde aquele dia, soube que queria seguir carreira na área.</p>
+<h3 id="cita%C3%A7%C3%A3o">Citação</h3>
+<blockquote>
+<p><em>&quot;Everybody wants to know what I would do if I didn't win. I guess we'll never know.&quot; - Kanye West</em></p>
+</blockquote>
+<hr>
+<h3 id="objetivos-%F0%9F%8E%AF">Objetivos 🎯</h3>
+<p>Estou em busca de aprofundar meus conhecimentos nas seguintes áreas:</p>
+<ul>
+<li>
+<p><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="20" height="20" /> <strong>Linux</strong>: Quero aprender e começar a usar o sistema operacional para me familiarizar com suas funcionalidades e comandos.</p>
+</li>
+<li>
+<p><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="git" width="20" height="20" />   - <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="github" width="20" height="20" /> <strong>Git e GitHub</strong>: Desejo me aprofundar no uso dessas ferramentas, pois são essenciais para o controle de versões e colaboração em projetos.</p>
+</li>
+<li>
+<p><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="20" height="20" /> - <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="sql" width="20" height="20" /> <strong>Python e MySQL</strong>: Tenho interesse em explorar mais sobre ambas as linguagens, especialmente após a experiência que tive trabalhando com dados durante meu estágio no BRB e na faculdade. Embora ainda não tenha decidido em qual área gostaria de me especializar, minha experiência com dados despertou um grande interesse.</p>
+</li>
+<li>
+<p>Além disso, tenho um desejo de aprender <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="20" height="20" /> <strong>JavaScript</strong>. Apesar de ter tido pouco contato até agora, acredito que é uma linguagem valiosa e que vale a pena aprofundar.</p>
+</li>
+<li>
+<p>Minha preferência é pela área de <strong>back-end</strong>, e espero conseguir uma oportunidade em uma empresa para iniciar minha carreira e mostrar meu potencial profissional.</p>
+</li>
+<li>
+<p>Meu sonho é trabalhar no Facebook, e estou determinado a trilhar esse caminho, sei que não vai ser fácil, mas todo meu esforço me trará frutos.</p>
+</li>
+<li>
+<p><a href="https://www.linkedin.com/in/martinssluiss"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&amp;logo=linkedin&amp;logoColor=fff" alt="LinkedIn"></a> <a href="https://www.instagram.com/martinss.luis/"><img src="https://img.shields.io/badge/Instagram-#E4405F?style=for-the-badge&amp;logo=instagram&amp;logoColor=fff" alt="Instagram"></a> <a href="https://github.com/martinssluis"><img src="https://img.shields.io/badge/Github-#000000?style=for-the-badge&amp;logo=github&amp;logoColor=fff" alt="Github"></a> <a href="https://open.spotify.com/user/22khipvilsnydxcso532oh3ly?si=47faca65428e407f"><img src="https://img.shields.io/badge/Spotify-#1DB954?style=for-the-badge&amp;logo=spotify&amp;logoColor=fff" alt="Spotify"></a> <a href="https://web.dio.me/users/luishenrique_martinslima?tab=achievements"><img src="https://img.shields.io/badge/DIO-#231DB5?style=for-the-badge&amp;logo=dio&amp;logoColor=fff" alt="DIO"></a> <a href = "mailto:martinssluis.lhml@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a></p>
+</li>
+</ul>
+<p><img src="https://github-readme-stats.vercel.app/api?username=martinssluis&amp;show_icons=true&amp;theme=tokyonight&amp;card_width=400" alt="Martinssluis's GitHub stats">
+<a href="https://github.com/martinssluis"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=martinssluis&amp;theme=tokyonight&amp;show_icons=true&amp;layout=compact&amp;card_width=400" alt="Top Langs"></a></p>
+
+</body>
+</html>
